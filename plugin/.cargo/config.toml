@@ -1,0 +1,4 @@
+[build]
+target = "wasm32-unknown-unknown"
+
+#  pass the following -Z build-std-features=panic_immediate_abort option to rustc

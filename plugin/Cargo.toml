@@ -1,0 +1,30 @@
+[package]
+name = "plugin"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate_type = ["cdylib"]
+
+[dependencies]
+extism-pdk = "0.3.1"
+serde = { version = "1.0", features = ["derive"] }
+wasm-bindgen = "0.2.86"
+
+[dependencies.web-sys]
+version = "0.3.4"
+features = ['Document', 'Element', 'HtmlElement', 'Node', 'Window']
+
+[profile.release]
+opt-level = "z"          # Optimize for size.
+lto = true               # Enable Link Time Optimization
+codegen-units = 1        # allow for maximum size reduction optimizations
+strip = true             # Automatically strip symbols from the binary.
+panic = 'abort'          # Abort on panic
+debug = false
+debug-assertions = false
+overflow-checks = false
+incremental = false
+rpath = false
