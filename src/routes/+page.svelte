@@ -35,10 +35,10 @@
 		/**
 		 * @type {Record<string, any>}
 		 */
+		// https://github.com/extism/extism/blob/main/browser/index.html#L106
 		const functions = {
 			hello_world: function (/** @type {number} */ index) {
-				//  + this.allocator.getString(index)
-				console.log('Hello world!');
+				console.log('Hello world! ' + this.allocator.getString(index));
 				return index;
 			}
 		};

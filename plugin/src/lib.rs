@@ -12,6 +12,7 @@ struct Output {
     pub a: String,
 }
 
+// https://github.com/extism/rust-pdk/blob/main/examples/host_function.rs
 #[host_fn]
 extern "ExtismHost" {
     fn hello_world(count: Json<Output>) -> Json<Output>;
@@ -33,7 +34,7 @@ pub fn count_vowels(input: String) -> FnResult<Json<Output>> {
     let config = config::get("thing").expect("'thing' key set in config");
 
     let output = Output { count, config, a };
-    // let output = unsafe { hello_world(Json(output))? };
-    let output = Json(output);
+    let output = unsafe { hello_world(Json(output))? };
+    // let output = Json(output);
     Ok(output)
 }
