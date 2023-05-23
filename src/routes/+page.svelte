@@ -38,7 +38,7 @@
 		// https://github.com/extism/extism/blob/main/browser/index.html#L106
 		const functions = {
 			hello_world: function (/** @type {number} */ index) {
-				console.log('Hello world! ' + this.allocator.getString(index));
+				console.log('Hello world from Host function! ' + this.allocator.getString(index));
 				return index;
 			}
 		};
@@ -49,7 +49,6 @@
 		const plugin = await ctx.newPlugin(manifest, functions, config);
 
 		let funcs = Object.keys(await plugin.getExports());
-		console.log('funcs ', funcs);
 
 		count = async function (/** @type {string | Uint8Array} */ text) {
 			output = await plugin.call('count_vowels', text);

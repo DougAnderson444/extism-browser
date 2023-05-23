@@ -1,5 +1,3 @@
-#![no_main]
-
 use extism_pdk::*;
 use serde::{Deserialize, Serialize};
 

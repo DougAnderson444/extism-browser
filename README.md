@@ -2,6 +2,23 @@
 
 Extism + Svelte
 
+### Build the WASM Plugin
+
+First change directories to `plugin` and run:
+
+```bash
+cd plugin
+cargo build --release
+```
+
+This will create a `.wasm` file in `plugin/target/wasm32-unknown-unknown/release/plugin.wasm`.
+
+Next run
+
+```bash
+npm run dev
+```
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
